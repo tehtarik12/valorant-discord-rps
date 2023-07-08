@@ -119,15 +119,15 @@ class Rpc():
                             mapImage = None
 
 
-                        # self.rpc.update(
-                        #     state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
-                        #     details=f"Agent Select - {gamemode}",
-                        #     large_image=mapImage,
-                        #     large_text=mapText,
-                        #     small_image=str(self.data.get("rank")),
-                        #     small_text=self.data.get("rank_name"),
-                        #     buttons=[{"label": "What's this? 👀", "url": "https://zaykenyon.github.io/VALORANT-rank-yoinker/"}]
-                        # )
+                        self.rpc.update(
+                            state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
+                            details=f"Agent Select - {gamemode}",
+                            large_image=mapImage,
+                            large_text=mapText,
+                            small_image=str(self.data.get("rank")),
+                            small_text=self.data.get("rank_name"),
+                             buttons=[{"label": "Sedang Try Hard Menuju Radiant 👀"}]
+                        )
                         self.log("RPC agent-select data update")
             except InvalidID:
                 self.discord_running = False
