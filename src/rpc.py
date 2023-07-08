@@ -66,16 +66,16 @@ class Rpc():
                         if self.last_presence_data.get("sessionLoopState") != presence["sessionLoopState"]:
                             self.start_time = time.time()
 
-                        self.rpc.update(
-                            state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
-                            details=details,
-                            large_image=mapImage,
-                            large_text=mapText,
-                            small_image=agent_img,
-                            small_text=agent,
-                            start=self.start_time,
-                            buttons=[{"label": "What's this? 👀", "url": "https://zaykenyon.github.io/VALORANT-rank-yoinker/"}]
-                        )
+                        # self.rpc.update(
+                        #     state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
+                        #     details=details,
+                        #     large_image=mapImage,
+                        #     large_text=mapText,
+                        #     small_image=agent_img,
+                        #     small_text=agent,
+                        #     start=self.start_time,
+                        #     buttons=[{"label": "What's this? 👀", "url": "https://zaykenyon.github.io/VALORANT-rank-yoinker/"}]
+                        # )
                         self.log("RPC in-game data update")
                     elif presence["sessionLoopState"] == "MENUS":
                         if presence["isIdle"]:
@@ -96,15 +96,15 @@ class Rpc():
                             gamemode = self.gamemodes.get(presence['queueId'])
 
 
-                        self.rpc.update(
-                            state=f"{party_string} ({presence['partySize']} of {presence['maxPartySize']})",
-                            details=f" Lobby - {gamemode}",
-                            large_image=image,
-                            large_text=image_text,
-                            small_image=str(self.data.get("rank")),
-                            small_text=self.data.get("rank_name"),
-                            buttons=[{"label": "What's this? 👀", "url": "https://zaykenyon.github.io/VALORANT-rank-yoinker/"}]
-                        )
+                        # self.rpc.update(
+                        #     state=f"{party_string} ({presence['partySize']} of {presence['maxPartySize']})",
+                        #     details=f" Lobby - {gamemode}",
+                        #     large_image=image,
+                        #     large_text=image_text,
+                        #     small_image=str(self.data.get("rank")),
+                        #     small_text=self.data.get("rank_name"),
+                        #     buttons=[{"label": "What's this? 👀", "url": "https://zaykenyon.github.io/VALORANT-rank-yoinker/"}]
+                        # )
                         self.log("RPC menu data update")
                     elif presence["sessionLoopState"] == "PREGAME":
                         if presence["provisioningFlow"] == "CustomGame" or presence["partyState"] == "CUSTOM_GAME_SETUP":
@@ -119,15 +119,15 @@ class Rpc():
                             mapImage = None
 
 
-                        self.rpc.update(
-                            state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
-                            details=f"Agent Select - {gamemode}",
-                            large_image=mapImage,
-                            large_text=mapText,
-                            small_image=str(self.data.get("rank")),
-                            small_text=self.data.get("rank_name"),
-                            buttons=[{"label": "What's this? 👀", "url": "https://zaykenyon.github.io/VALORANT-rank-yoinker/"}]
-                        )
+                        # self.rpc.update(
+                        #     state=f"In a Party ({presence['partySize']} of {presence['maxPartySize']})",
+                        #     details=f"Agent Select - {gamemode}",
+                        #     large_image=mapImage,
+                        #     large_text=mapText,
+                        #     small_image=str(self.data.get("rank")),
+                        #     small_text=self.data.get("rank_name"),
+                        #     buttons=[{"label": "What's this? 👀", "url": "https://zaykenyon.github.io/VALORANT-rank-yoinker/"}]
+                        # )
                         self.log("RPC agent-select data update")
             except InvalidID:
                 self.discord_running = False
